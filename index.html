@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Calculator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+        display: flex;
+        justify-content: center;  
+        background: white;  
+        align-items: center;
+        min-height: 100vh;
+      }      
+        
+      #calculator{
+        width: 300px;
+        background: #f5f4fa;
+        padding: 10px;
+        border-radius: 10px;
+        margin: auto;
+      }
+
+      #screen{
+        height: 60px;
+        margin-bottom: 10px;
+        text-align: right;
+        padding: 10px;
+        font-size: 30px;
+        border-radius: 10px;
+      }
+
+
+      .buttons{
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      button{
+        width: 25%;
+        padding: 10px;
+        font-size: 20px;
+      }
+      button:hover{
+        cursor: pointer;
+        color: rgb(116, 15, 210);
+      }
+ 
+      button:last-child{
+        background: pink;
+      }
+
+        </style>
+    </head>
+
+
+    
+    <body>
+
+        <div id="calculator">
+            <div id="screen"></div>
+            <div class="buttons">
+
+              <button>7</button>
+              <button>8</button>
+              <button>9</button>
+              <button>/</button>
+
+              <button>4</button>
+              <button>5</button>
+              <button>6</button>
+              <button>*</button>
+
+              <button>1</button>
+              <button>2</button>
+              <button>3</button>
+              <button>-</button>
+
+              <button>0</button>
+              <button>C</button>
+              <button>=</button>
+              <button>+</button>
+            </div>
+       
+</div>
+        <script>
+          let screen = document.getElementById("screen");
+let buttons= document.querySelectorAll("button"); 
+
+let expression ="";
+
+buttons.forEach(button => {
+button.addEventListener("click",function(){
+
+    let value = button.innerText;
+
+    if(value==="="){
+        expression = eval(expression);
+        screen.innerText= expression;
+    }
+    else if(value==="C"){
+        expression="";
+        screen.innerText="";
+    }
+    else{
+        expression+= value;
+        screen.innerText=expression;
+    }
+});
+});
+
+        </script>
+    </body>
+</html>
